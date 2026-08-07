@@ -21,6 +21,9 @@ Explorations of template metaprogramming and modern language capabilities:
 ## 💻 LeetCode
 * **Problem Solving:** Practical application of modern C++ techniques and data structures to solve algorithmic challenges from LeetCode.
 
+## Operating Systems
+
+## Compilers
 ---
 
 *Feel free to explore the code, open an issue, or use this as a reference for your own C++ studies!*

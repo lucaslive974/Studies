@@ -1,0 +1,3 @@
+[submodule "ring-zero"]
+	path = ring-zero
+	url = git@github.com:lucaslive974/ring-zero.git
