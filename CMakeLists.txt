@@ -24,13 +24,17 @@ message(STATUS "${PROJECT_NAME} version: ${PROJECT_VERSION}")
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
-message(STATUS "Standard: ${CMAKE_CXX_STANDARD} Required: ${CMAKE_CXX_STANDARD_REQUIRED}")
+set(CMAKE_C_STANDARD 23)
+set(CMAKE_C_STANDARD_REQUIRED TRUE)
+
+message(STATUS "Cxx Standard: ${CMAKE_CXX_STANDARD} Required: ${CMAKE_CXX_STANDARD_REQUIRED}")
+message(STATUS "C Standard: ${CMAKE_C_STANDARD} Required: ${CMAKE_C_STANDARD_REQUIRED}")
 
 message(STATUS "Compiler C: ${CMAKE_C_COMPILER}")
 message(STATUS "Compiler CXX: ${CMAKE_CXX_COMPILER}")
 
 file(GLOB_RECURSE SOURCES_LEETCODE src/leetcode/*.cpp)
-file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp)
+file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp src/patterns/*.c)
 
 add_library(PATTERNS STATIC ${SOURCES_PATTERNS})
 add_library(LEETCODE STATIC ${SOURCES_LEETCODE})
@@ -42,3 +46,6 @@ target_link_libraries(patterns_exe PRIVATE PATTERNS)
 
 add_executable(leetcode_exe src/tests/leetcode.cpp)
 target_link_libraries(leetcode_exe PRIVATE LEETCODE)
+
+add_executable(hashmap_tests_exe src/patterns/hashmap.c src/tests/hashmap.c)
+target_include_directories(hashmap_tests_exe PUBLIC "include")
