@@ -7,6 +7,7 @@ int main(int argc, char **argv) { // NOLINT(modernize-use-trailing-return-type):
     concepts();
     pimpl();
     typeTraits();
+    memory();
 
     return 0;
 }
