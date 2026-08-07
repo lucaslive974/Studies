@@ -29,8 +29,16 @@ message(STATUS "Standard: ${CMAKE_CXX_STANDARD} Required: ${CMAKE_CXX_STANDARD_R
 message(STATUS "Compiler C: ${CMAKE_C_COMPILER}")
 message(STATUS "Compiler CXX: ${CMAKE_CXX_COMPILER}")
 
-file(GLOB_RECURSE SOURCES_CPP src/*.cpp)
+file(GLOB_RECURSE SOURCES_LEETCODE src/leetcode/*.cpp)
+file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp)
 
-add_executable(main_exe)
-target_sources(main_exe PRIVATE ${SOURCES_CPP})
-target_include_directories(main_exe PRIVATE include)
+add_library(PATTERNS STATIC ${SOURCES_PATTERNS})
+add_library(LEETCODE STATIC ${SOURCES_LEETCODE})
+target_include_directories(PATTERNS PUBLIC "include")
+target_include_directories(LEETCODE PUBLIC "include")
+
+add_executable(patterns_exe src/tests/patterns.cpp)
+target_link_libraries(patterns_exe PRIVATE PATTERNS)
+
+add_executable(leetcode_exe src/tests/leetcode.cpp)
+target_link_libraries(leetcode_exe PRIVATE LEETCODE)

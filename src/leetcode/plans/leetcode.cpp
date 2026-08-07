@@ -8,8 +8,7 @@
 #include <string>
 #include <unordered_set>
 
-using namespace std;
-
+namespace plans::LeetCode75 {
 auto remainingMethods(int n, int k, vector<vector<int>> invocations) -> vector<int> {
     vector<vector<int>> adj(n);
     for (const auto &inv : invocations) {
@@ -189,7 +188,9 @@ auto productExceptSelf(vector<int> &nums) -> vector<int> {
         rightProduct.push_back(product);
     }
 
-    auto resultView = views::zip_transform([](int left, int right) -> int { return left * right; }, leftProduct, views::reverse(rightProduct));
+    auto resultView = views::zip_transform([](int left, int right) -> int { return left * right; }, leftProduct,
+                                           views::reverse(rightProduct));
 
     return ranges::to<vector<int>>(resultView);
 }
+} // namespace plans::LeetCode75
