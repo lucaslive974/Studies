@@ -13,3 +13,5 @@ void pimpl();
 void typeTraits();
 
 void memory();
+
+void typeErasure();
