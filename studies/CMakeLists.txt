@@ -36,14 +36,17 @@ message(STATUS "Compiler CXX: ${CMAKE_CXX_COMPILER}")
 file(GLOB_RECURSE SOURCES_LEETCODE src/leetcode/*.cpp)
 file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp src/patterns/*.c)
 file(GLOB_RECURSE SOURCES_ALGORITHMS src/algorithms/*.cpp)
+file(GLOB_RECURSE SOURCES_DATA_STRUCTS src/data_structs/*.cpp)
 
 add_library(PATTERNS STATIC ${SOURCES_PATTERNS})
 add_library(LEETCODE STATIC ${SOURCES_LEETCODE})
 add_library(ALGORITHMS STATIC ${SOURCES_ALGORITHMS})
+add_library(DATA_STRUCTS STATIC ${SOURCES_DATA_STRUCTS})
 
 target_include_directories(PATTERNS PUBLIC "include")
 target_include_directories(LEETCODE PUBLIC "include")
 target_include_directories(ALGORITHMS PUBLIC "include")
+target_include_directories(DATA_STRUCTS PUBLIC "include")
 
 add_executable(patterns_exe src/tests/patterns.cpp)
 target_link_libraries(patterns_exe PRIVATE PATTERNS)
@@ -56,3 +59,6 @@ target_include_directories(hashmap_tests_exe PUBLIC "include")
 
 add_executable(algorithms_exe src/tests/algorithms.cpp)
 target_link_libraries(algorithms_exe PRIVATE ALGORITHMS)
+
+add_executable(data_structs_exe src/tests/data_structs.cpp)
+target_link_libraries(data_structs_exe PRIVATE DATA_STRUCTS)
