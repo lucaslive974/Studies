@@ -20,4 +20,8 @@ void dfs();
 void bfs();
 } // namespace graphs
 
+namespace numeric {
+int fastExponentiation(int num, int expo);
+}
+
 } // namespace algorithms
