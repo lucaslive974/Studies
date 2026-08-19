@@ -7,8 +7,9 @@ int main(int argc, char **argv) {
     std::vector<int> vec{4, 9, 1, 8, 4, 3};
     sorting::mergeSort(vec);
 
-    int res = numeric::fastExponentiation(2, 10);
-    std::cout << "Fast expo: 2¹⁰=" << res << '\n'; 
+    std::cout << "Power of two expo: 2¹⁰=" << numeric::fastExponentiation(2, 10) << '\n';
+    std::cout << "Power of two expo: 4²=" << numeric::fastExponentiation(4, 2) << '\n';
+    std::cout << "Fast exponentiation: 3³=" << numeric::fastExponentiation(3, 3) << '\n';
 
     return 0;
 }

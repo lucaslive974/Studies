@@ -21,7 +21,8 @@ void bfs();
 } // namespace graphs
 
 namespace numeric {
-int fastExponentiation(int num, int expo);
+unsigned int fastExponentiation(unsigned int num, unsigned int expo);
+unsigned int powerOfTwoExponentiation(unsigned int num, unsigned int expo);
 }
 
 } // namespace algorithms
