@@ -18,7 +18,6 @@ template <> struct Integral<MyType> : std::true_type {};
 } // namespace
 
 void typeTraits() {
-    std::cout << "Type traits Example" << '\n';
     if constexpr (Integral<MyType>::value) {
         std::cout << MyType::getTypeName() << " is integral!" << '\n';
     } else {

@@ -21,7 +21,6 @@ class Derived : public Base<Derived> {
 } // namespace
 
 void crtp() {
-    std::cout << "CRTP Example" << "\n";
     Derived dev{/**symName=*/"CRTP Derived"};
     dev.interface();
 }

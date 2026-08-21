@@ -22,7 +22,6 @@ template <HasBehaviour Adaptor> struct GenericAdaptor {
 } // namespace
 
 auto concepts() -> void {
-    std::cout << "Concepts Example" << '\n';
     GenericAdaptor<SpecializedAdaptor> adaptor;
     adaptor.behaviour();
 }

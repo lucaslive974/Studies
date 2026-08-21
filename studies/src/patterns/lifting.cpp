@@ -9,8 +9,6 @@ template <typename T> void TemplateFunction(T &t) {
 template <typename T, typename Fn> void algorithm(T t, Fn f) { f(t); }
 
 void lifting() {
-    std::cout << "Lifting pattern demonstration:" << std::endl;
-
     /*
      Template functions arent first class citizens, so we need to lift it into a function
      object
