@@ -30,5 +30,5 @@ unsigned int algorithms::numeric::fastExponentiation(unsigned int num, unsigned 
 
 unsigned int algorithms::numeric::powerOfTwoExponentiation(unsigned int num, unsigned int expo) {
     assert(isPowerOfTwo(num) && "Number must be a power of two to be bitshift exponentiated.");
-    return 1 << (std::countr_zero(num) * expo);
+    return 1U << (std::countr_zero(num) * expo);
 }
