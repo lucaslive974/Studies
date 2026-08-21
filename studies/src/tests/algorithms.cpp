@@ -24,7 +24,6 @@ template <typename T, typename Fn> void applySorting(std::string algName, std::v
     std::cout << "Sorted non ascendent: ";
     utils::printVector(vecDesc);
     std::cout << std::format("Number of operations [{}]: ", algName) << operations << '\n';
-    utils::printLineSpacing();
 }
 
 void mergeSorting(std::vector<int> vec) {
@@ -36,14 +35,13 @@ void bubbleSorting(std::vector<int> vec) {
 };
 
 void sortingWrapper() {
-    std::cout << "[Sorting]" << '\n';
     std::vector<int> vec{4, 9, 1, 8, 4, 3, 10, 6, 19, 7, 11, 2};
     mergeSorting(vec);
+    utils::printLineSpacing();
     bubbleSorting(vec);
 };
 
 void fastExponentiating() {
-    std::cout << "[Fast Exponentiation]" << '\n';
     unsigned int res1 = numeric::fastExponentiation(2, 10);
     std::cout << "2¹⁰=" << res1 << '\n';
 
@@ -52,12 +50,17 @@ void fastExponentiating() {
 
     unsigned int res3 = numeric::fastExponentiation(3, 3);
     std::cout << "3³=" << res3 << '\n';
-    utils::printLineSpacing();
 }
 
 int main(int argc, char **argv) {
-    sortingWrapper();
-    fastExponentiating();
+    std::cout << "Algorithms Examples" << '\n';
+
+    std::vector<std::pair<std::string, utils::PatternFunction>> algorithms = {{"Sorting", sortingWrapper},
+                                                                              {"Fast Exponentiation", fastExponentiating}};
+
+    for (const auto &algorithm : algorithms) {
+        utils::executePattern(algorithm.first, algorithm.second);
+    }
 
     return 0;
 }
