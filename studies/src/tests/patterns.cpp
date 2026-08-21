@@ -8,6 +8,7 @@ int main(int argc, char **argv) { // NOLINT(modernize-use-trailing-return-type):
     pimpl();
     typeTraits();
     memory();
+    lifting();
 
     return 0;
 }

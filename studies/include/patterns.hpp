@@ -15,3 +15,5 @@ void typeTraits();
 void memory();
 
 void typeErasure();
+
+void lifting();
