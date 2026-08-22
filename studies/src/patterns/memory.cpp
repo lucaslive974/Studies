@@ -57,14 +57,15 @@ class Vector {
         }
     }
 
-    //Copy constructor
+    // Copy constructor
     Vector(const Vector &other) : Vector(other.size, other.idName) {
         idName += "_copy_constructor";
         memcpy(data, other.data, sizeof(int) * size);
     }
 
-    //Move constructor
+    // Move constructor
     Vector(Vector &&other) noexcept {
+        std::cout << std::format("Moving vec id: {}\n", other.idName);
         idName = other.idName;
         idName += "_move_constructor";
         data = other.data;
@@ -74,35 +75,19 @@ class Vector {
         other.size = 0;
     }
 
-    //Copy assignment
-    Vector &operator=(const Vector &other) {
-        if (this == &other)
-            return *this;
-        delete[] data;
-
-        size = other.size;
-        data = new int[other.size];
-        idName = other.idName + "_copy_assign";
-        memcpy(data, other.data, sizeof(int) * size);
-
+    // Copy and Swap idiom
+    Vector &operator=(Vector other) {
+        swap(*this, other);
+        idName += "_copy_swap";
+        other.idName += "_tmp_copy_swap";
         return *this;
     };
 
-    //Move assignment
-    Vector &operator=(Vector &&other) noexcept {
-        if (this == &other)
-            return *this;
-
-        delete[] data;
-
-        idName = other.idName + "_move_assign";
-        data = other.data;
-        size = other.size;
-
-        other.data = nullptr;
-        other.size = 0;
-
-        return *this;
+    friend void swap(Vector &first, Vector &second) noexcept {
+        using std::swap;
+        swap(first.idName, second.idName);
+        swap(first.size, second.size);
+        swap(first.data, second.data);
     }
 
     ~Vector() {
@@ -117,7 +102,7 @@ class Vector {
 
     void printData() {
         if (data == nullptr) {
-            std::cout << "Moved vector: This one is empty\n";
+            std::cout << std::format("Moved id=\"{}\": This one is empty\n", idName);
             return;
         }
         for (auto idx : std::views::iota(0UZ, size)) {
@@ -135,20 +120,21 @@ class Vector {
 void ruleOfFive() {
     // Initialize
     Vector vec{2, 4, 6, 8, 10};
-
-    // Copy assignment;
-    Vector vec2;
-    vec2 = vec;
-    vec2.insert(4, 8); // Modify last value;
-
     std::cout << "Vec original: ";
     vec.printData();
 
-    std::cout << "Vec copy:     ";
-    vec2.printData();
+    {
+        // Copy assignment;
+        Vector vec2;
+        vec2 = vec;
+        vec2.insert(4, 8); // Modify last value;
+
+        std::cout << "Vec copy:     ";
+        vec2.printData();
+    }
 
     {
-        // Move assignment;
+        // Move constructor;
         auto vecMove = std::move(vec);
 
         // Vector empty;
