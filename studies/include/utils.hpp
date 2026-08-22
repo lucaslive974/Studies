@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-
+namespace {
 namespace utils {
 void printLineSpacing() { std::cout << "======================================" << "\n"; }
 
@@ -25,3 +25,4 @@ void executePattern(const std::string &patternName, PatternFunction patternFunct
 }
 
 } // namespace utils
+} // namespace

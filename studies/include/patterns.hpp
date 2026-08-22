@@ -12,6 +12,8 @@ void pimpl();
 
 void typeTraits();
 
+void smartPointers();
+
 void memory();
 
 void typeErasure();
