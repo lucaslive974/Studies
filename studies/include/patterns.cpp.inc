@@ -7,7 +7,7 @@
 {"Pimpl", pimpl},
 {"Type Traits", typeTraits},
 {"Smart Pointers", smartPointers},
-{"Memory", memory},
+{"Rule of Five", ruleOfFive},
 {"Type Erasure", typeErasure},
 {"Lifting", lifting}
 #undef PATTERNS_LIST

@@ -14,7 +14,7 @@ void typeTraits();
 
 void smartPointers();
 
-void memory();
+void ruleOfFive();
 
 void typeErasure();
 
