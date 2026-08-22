@@ -55,8 +55,10 @@ void fastExponentiating() {
 int main(int argc, char **argv) {
     std::cout << "Algorithms Examples" << '\n';
 
-    std::vector<std::pair<std::string, utils::PatternFunction>> algorithms = {{"Sorting", sortingWrapper},
-                                                                              {"Fast Exponentiation", fastExponentiating}};
+    std::vector<std::pair<std::string, utils::PatternFunction>> algorithms = {
+#define ALGORITHMS_LIST
+#include "algorithms.cpp.inc"
+    };
 
     for (const auto &algorithm : algorithms) {
         utils::executePattern(algorithm.first, algorithm.second);
