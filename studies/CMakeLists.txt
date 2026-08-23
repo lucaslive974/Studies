@@ -34,7 +34,7 @@ message(STATUS "Compiler C: ${CMAKE_C_COMPILER}")
 message(STATUS "Compiler CXX: ${CMAKE_CXX_COMPILER}")
 
 file(GLOB_RECURSE SOURCES_LEETCODE src/leetcode/*.cpp)
-file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp)
+file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/**/*.cpp)
 file(GLOB_RECURSE SOURCES_IDIOMS src/cpp_idioms/*.cpp)
 file(GLOB_RECURSE SOURCES_ALGORITHMS src/algorithms/*.cpp)
 file(GLOB_RECURSE SOURCES_DATA_STRUCTS src/data_structs/*.cpp src/data_structs/*.c)
