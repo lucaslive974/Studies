@@ -19,3 +19,5 @@ void ruleOfFive();
 void typeErasure();
 
 void lifting();
+
+void visitor();
