@@ -34,16 +34,19 @@ message(STATUS "Compiler C: ${CMAKE_C_COMPILER}")
 message(STATUS "Compiler CXX: ${CMAKE_CXX_COMPILER}")
 
 file(GLOB_RECURSE SOURCES_LEETCODE src/leetcode/*.cpp)
-file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp src/patterns/*.c)
+file(GLOB_RECURSE SOURCES_PATTERNS src/patterns/*.cpp)
+file(GLOB_RECURSE SOURCES_IDIOMS src/cpp_idioms/*.cpp)
 file(GLOB_RECURSE SOURCES_ALGORITHMS src/algorithms/*.cpp)
-file(GLOB_RECURSE SOURCES_DATA_STRUCTS src/data_structs/*.cpp)
+file(GLOB_RECURSE SOURCES_DATA_STRUCTS src/data_structs/*.cpp src/data_structs/*.c)
 
 add_library(PATTERNS STATIC ${SOURCES_PATTERNS})
+add_library(IDIOMS STATIC ${SOURCES_IDIOMS})
 add_library(LEETCODE STATIC ${SOURCES_LEETCODE})
 add_library(ALGORITHMS STATIC ${SOURCES_ALGORITHMS})
 add_library(DATA_STRUCTS STATIC ${SOURCES_DATA_STRUCTS})
 
 target_include_directories(PATTERNS PUBLIC "include")
+target_include_directories(IDIOMS PUBLIC "include")
 target_include_directories(LEETCODE PUBLIC "include")
 target_include_directories(ALGORITHMS PUBLIC "include")
 target_include_directories(DATA_STRUCTS PUBLIC "include")
@@ -51,10 +54,13 @@ target_include_directories(DATA_STRUCTS PUBLIC "include")
 add_executable(patterns_exe src/tests/patterns.cpp)
 target_link_libraries(patterns_exe PRIVATE PATTERNS)
 
+add_executable(idioms_exe src/tests/idioms.cpp)
+target_link_libraries(idioms_exe PRIVATE IDIOMS)
+
 add_executable(leetcode_exe src/tests/leetcode.cpp)
 target_link_libraries(leetcode_exe PRIVATE LEETCODE)
 
-add_executable(hashmap_tests_exe src/patterns/hashmap.c src/tests/hashmap.c)
+add_executable(hashmap_tests_exe src/data_structs/hashmap.c src/tests/hashmap.c)
 target_include_directories(hashmap_tests_exe PUBLIC "include")
 
 add_executable(algorithms_exe src/tests/algorithms.cpp)
