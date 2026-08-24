@@ -1,8 +1,8 @@
 #pragma once
 
+//Idioms
 void crtp();
 
-void mixin();
 
 void sfinae();
 
@@ -20,4 +20,9 @@ void typeErasure();
 
 void lifting();
 
+//Patterns
 void visitor();
+
+void mixin();
+
+void singleton();

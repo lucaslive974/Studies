@@ -1,5 +1,6 @@
 #ifdef PATTERNS_LIST
 {"Mixin", mixin},
-{"Visitors", visitor}
+{"Visitors", visitor},
+{"Singleton", singleton}
 #undef PATTERNS_LIST
 #endif
