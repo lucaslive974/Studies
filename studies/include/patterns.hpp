@@ -26,3 +26,5 @@ void visitor();
 void mixin();
 
 void singleton();
+
+void prototype();
