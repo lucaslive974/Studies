@@ -26,6 +26,6 @@ void singleton() {
     auto *s2 = &Singleton::getInstance();
 
     s1->printName();
-    std::cout << std::format("Both have the same address: {}\n", s1 == s2);
+    std::cout << std::format("Both point to the same object address: {}\n", s1 == s2);
     std::cout << std::format("The pointers are two different addresses: {}\n", &s1 != &s2);
 }
