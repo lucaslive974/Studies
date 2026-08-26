@@ -2,6 +2,7 @@
 {"Mixin", mixin},
 {"Visitors", visitor},
 {"Singleton", singleton},
-{"Prototypes", prototype}
+{"Prototypes", prototype},
+{"Facade", facade}
 #undef PATTERNS_LIST
 #endif

@@ -28,3 +28,5 @@ void mixin();
 void singleton();
 
 void prototype();
+
+void facade();
