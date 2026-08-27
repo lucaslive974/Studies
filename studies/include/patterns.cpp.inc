@@ -3,6 +3,7 @@
 {"Visitors", visitor},
 {"Singleton", singleton},
 {"Prototypes", prototype},
-{"Facade", facade}
+{"Facade", facade},
+{"Adapter", adapter}
 #undef PATTERNS_LIST
 #endif

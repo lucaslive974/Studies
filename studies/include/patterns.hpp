@@ -30,3 +30,5 @@ void singleton();
 void prototype();
 
 void facade();
+
+void adapter();
