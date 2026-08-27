@@ -1,3 +1,6 @@
 [submodule "ring-zero"]
 	path = ring-zero
 	url = git@github.com:lucaslive974/ring-zero.git
+[submodule "ctci"]
+	path = ctci
+	url = git@github.com:lucaslive974/CTCI.git
