@@ -4,6 +4,7 @@
 {"Singleton", singleton},
 {"Prototypes", prototype},
 {"Facade", facade},
-{"Adapter", adapter}
+{"Adapter", adapter},
+{"Abstract Factory", abstractFactory}
 #undef PATTERNS_LIST
 #endif

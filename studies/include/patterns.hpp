@@ -32,3 +32,5 @@ void prototype();
 void facade();
 
 void adapter();
+
+void abstractFactory();
